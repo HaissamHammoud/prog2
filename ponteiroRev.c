@@ -2,7 +2,7 @@
 #include<stdlib.h>
 
 void swap(int *a, int *b);
-void swapVector(int a[], int b[]);
+void swapVector(int a[], int b[], int size);
 int main()
 {
     int a = 1 , b = 2 ;
@@ -13,6 +13,8 @@ int main()
     swap(pa,pb);
     printf("%i   %i\n", a , b);
     printf("\n\n");
+
+    swapVector(veta, vetb,3);
     for(int i = 0 ; i <3 ; i++ )
     {
         printf(" %i " , veta[i]);
@@ -23,10 +25,6 @@ int main()
         printf(" %i " , vetb[i]);
     }
     printf("\n\n");
-
-    printf("%i  %i      %i     %i   \n", veta[0], veta[1], vetb[0], vetb[1]);
-    swapVector(veta, vetb);
-    printf("%i  %i      %i     %i   \n", veta[0], veta[1], vetb[0], vetb[1]);
 }
 
 void swap(int *a, int *b)
@@ -37,11 +35,10 @@ void swap(int *a, int *b)
     *b = c;
 }
 
-void swapVector(int a[], int b[])
-{
-    int sizea= sizeof(*a)/ sizeof(1);
-    int c[2];
-    for(int i = 0 ; i<sizea ; i++)
+void swapVector(int a[], int b[], int size)
+{   
+    int c[3];
+    for(int i = 0 ; i<size ; i++)
     {
         c[i] = *(a+i);
         *(a+i) = *(b+i);
